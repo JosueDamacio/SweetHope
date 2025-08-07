@@ -28,9 +28,9 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #fff6f0;
-            background-image: url("/img/torta.png");
+            background-image: url("img/torta.png");
             background-position: center;
-            background-size: 160px 160px;
+            background-size: 200px 200px;
             background-attachment: fixed;
         }
         .tituloPrincipal{
@@ -92,7 +92,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Tamaño de torta -->
             <div class="option-card bg-pastel-pink rounded-lg p-6 shadow-md">
-                <h2 class="text-xl font-semibold mb-4 border-b pb-2">Tamaño de torta</h2>
+                <h2 class="text-xl font-semibold mb-4 border-b pb-2">Tamaño de torta (Bizcochuelo)</h2>
                 
                 <!-- <div class="checkbox-container">
                     <input type="radio" id="size-individual" name="cake-size" data-price="15000" data-multiplier="1" class="cake-option cake-size">
@@ -113,7 +113,7 @@
                 </div>
                 
                 <div class="checkbox-container">
-                    <input type="radio" id="size-2tier" name="cake-size" data-price="50000" data-multiplier="2.6" class="cake-option cake-size">
+                    <input type="radio" id="size-2tier" name="cake-size" data-price="50000" data-multiplier="2.5" class="cake-option cake-size">
                     <label for="size-2tier">ㅤ2 pisos</label>
                     <span class="price-tag">$50.000</span>
                 </div>
@@ -156,37 +156,39 @@
 const PRODUCT_PRICES = {
     sizes: {
         // individual: 15000,
-        medium: 25000,
-        large: 35000,
-        twotier: 50000
+        medium: 19000,
+        large: 21000,
+        twotier: 28000
     },
     fillings: {
-        dulce_de_leche: 2500,
+        dulce_de_leche: 2300,
+        mousse: 2200,
         crema: 3000,
-        mousse: 4000,
         frutilla_o_durazno: 3500,
         galletas_a_elección: 4000,
-        chocolate: 5000,
-        mani: 5200,
+        chocolate: 4500,
+        pasta_de_maní: 5800,
         mantecol: 6000,
-        nutella: 6500,
-        Personalizado: 6500
+        nutella: 6700,
+        Personalizado: 7000
     },
     toppings: {
-        chocolate: 4500,
-        frutas_a_elección: 4000,
+        crema_decorativa: 1200,
         oreo: 3200,
-        personalizado: 5500
+        frutas_a_elección: 3600,
+        chocolate: 4500,
+        personalizado: 5500,
+        nutella: 6000
     },
     decorations: {
-        cobertura_de_crema: 5000,
-        trozos_de_caramelo: 3000,
-        mazapan: 5000,
-        impresiones_de_papel_arroz: 5600,
-        diseños_con_crema: 4000,
+        trozos_de_caramelo: 2300,
         frutas: 2600,
-        chocolates: 4800,
         galletitas: 3500,
+        cobertura_de_crema: 3800,
+        diseños_con_crema: 4000,
+        mazapan: 4600,
+        impresiones_de_papel_arroz: 5600,
+        trozos_de_chocolates: 5800,
         cobertura_de_chocolate: 6500
 
     }
