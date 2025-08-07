@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sweet Hope - Crea tu presupuesto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pastel-pink': '#FFCCD1',
+                        'pastel-orange': '#FFDBB5',
+                        'sweet-orange': '#FFA500'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style id="app-style">
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff6f0;
+            background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D2B48C' fill-opacity='0.4'%3E%3Cpath d='M9 0h2v20H9V0zm25 0h2v20h-2V0zM9 77h2v20H9V77zm25 0h2v20h-2V77zm-19 6h2v8h-2v-8zm8 0h2v8h-2v-8zm-4-4h2v16h-2V79zm64-35h2v20h-2V44zm-8 8h2v4h-2v-4zm4 0h2v4h-2v-4zm-32 0h2v8h-2v-8zm16 0h2v8h-2v-8zm8 0h2v8h-2v-8zm-16-8h2v24h-2V44zm16 0h2v24h-2V44zm8 8h2v8h-2v-8zm-64-8h2v8h-2v-8zm32 0h2v8h-2v-8zm16 0h2v8h-2v-8zm-8-8h2v24h-2V44zm-8-8h2v8h-2v-8zm-8 0h2v8h-2v-8zm-8 0h2v8h-2v-8zm-8 0h2v8h-2v-8zm64 0h2v8h-2v-8zm-48 0h2v8h-2v-8zm16 0h2v8h-2v-8zm16 0h2v8h-2v-8z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+            background-position: center;
+            background-size: 200px 200px;
+            background-attachment: fixed;
+        }
+
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(243, 238, 233);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeOut 2s ease-in-out forwards;
+        }
+
+        .splash-logo {
+            animation: grow 2s ease-in-out;
+            width: 60vw;
+            max-width: 900px;
+            height: auto;
+            display: block;
+            border: 3px solid #9e611b;
+        }
+
+        @keyframes grow {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            80% { opacity: 0; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        .option-card {
+            transition: all 0.3s ease;
+        }
+
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 0.5rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            cursor: pointer;
+        }
+
+        .price-tag {
+            margin-left: auto;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .contact-button {
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            transform: scale(1.05);
+        }
+
+        .total-section {
+            background: linear-gradient(135deg, #ffd6fc, #fcfbce);
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-screen">
+        <img src="img/sh_logo.jpg">
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8 max-w-5xl">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-gray-800 mb-3">Crea tu presupuesto!</h1>
+            <p class="text-lg text-gray-600">Sweet Hope - Dulces momentos para compartir</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Tamaño de torta -->
+            <div class="option-card bg-pastel-pink rounded-lg p-6 shadow-md">
+                <h2 class="text-xl font-semibold mb-4 border-b pb-2">Tamaño de torta</h2>
+                
+                <!-- <div class="checkbox-container">
+                    <input type="radio" id="size-individual" name="cake-size" data-price="15000" data-multiplier="1" class="cake-option cake-size">
+                    <label for="size-individual">ㅤIndividual</label>
+                    <span class="price-tag">$15.000</span>
+                </div> -->
+                
+                <div class="checkbox-container">
+                    <input type="radio" id="size-medium" name="cake-size" data-price="25000" data-multiplier="1.6" class="cake-option cake-size">
+                    <label for="size-medium">ㅤMediana</label>
+                    <span class="price-tag">$25.000</span>
+                </div>
+                
+                <div class="checkbox-container">
+                    <input type="radio" id="size-large" name="cake-size" data-price="35000" data-multiplier="2.2" class="cake-option cake-size">
+                    <label for="size-large">ㅤGrande</label>
+                    <span class="price-tag">$35.000</span>
+                </div>
+                
+                <div class="checkbox-container">
+                    <input type="radio" id="size-2tier" name="cake-size" data-price="50000" data-multiplier="3.6" class="cake-option cake-size">
+                    <label for="size-2tier">ㅤ2 pisos</label>
+                    <span class="price-tag">$50.000</span>
+                </div>
+            </div>
+
+                        <!-- Toppings -->
+            <div class="option-card bg-pastel-orange rounded-lg p-6 shadow-md">
+                <h2 class="text-xl font-semibold mb-4 border-b pb-2">Toppings</h2>
+                <div id="toppings-list"></div>
+            </div>
+
+            <!-- Rellenos -->
+            <div class="option-card bg-pastel-orange rounded-lg p-6 shadow-md">
+                <h2 class="text-xl font-semibold mb-4 border-b pb-2">Rellenos</h2>
+                <div id="fillings-list"></div>
+            </div>
+
+            <!-- Decoraciones exteriores -->
+            <div class="option-card bg-pastel-pink rounded-lg p-6 shadow-md">
+                <h2 class="text-xl font-semibold mb-4 border-b pb-2">Decoraciones exteriores</h2>
+                <div id="decorations-list"></div>
+            </div>
+        </div>
+        <!-- Total section -->
+        <div class="total-section mt-10 p-6 rounded-lg shadow-lg">
+            <div class="flex justify-between items-center mb-3">
+                <h2 class="text-2xl font-bold">Total:</h2>
+                <span id="total-price" class="text-3xl font-bold">$0</span>
+            </div>
+            <p class="text-sm text-gray-600 italic mb-6">Los pedidos deben hacerse con <span style="font-weight: bold;">mínimo una semana de anticipación</span>. Gracias por elegirnos 😊</p>
+            
+            <button id="contact-button" class="contact-button w-full bg-sweet-orange hover:bg-opacity-90 text-white py-3 px-6 rounded-lg text-lg font-semibold flex items-center justify-center">
+                <i class="fab fa-whatsapp text-2xl mr-2"></i>
+                Contactar
+            </button>
+        </div>
+    </div>
+
+<script id="app-script">
+const PRODUCT_PRICES = {
+    sizes: {
+        // individual: 15000,
+        medium: 25000,
+        large: 35000,
+        twotier: 50000
+    },
+    fillings: {
+        dulce_de_leche: 2500,
+        crema: 3000,
+        mousse: 4000,
+        frutilla_o_durazno: 3500,
+        galletas_a_elección: 4000,
+        chocolate: 5000,
+        mani: 5200,
+        mantecol: 6000,
+        nutella: 6500,
+        Personalizado: 6500
+    },
+    toppings: {
+        chocolate: 4500,
+        frutas_a_elección: 4000,
+        oreo: 3200,
+        personalizado: 5500
+    },
+    decorations: {
+        cobertura_de_crema: 5000,
+        trozos_de_caramelo: 3000,
+        mazapan: 5000,
+        impresiones_de_papel_arroz: 5600,
+        diseños_con_crema: 4000,
+        frutas: 2600,
+        chocolates: 4800,
+        galletitas: 3500,
+        cobertura_de_chocolate: 6500
+
+    }
+};
+
+function capitalize(str) {
+    // Convierte snake_case o camelCase a texto legible
+    return str.replace(/([A-Z])/g, ' $1')
+              .replace(/^./, s => s.toUpperCase())
+              .replace(/_/g, ' ');
+}
+
+function renderOptions() {
+    // Rellenos
+    const fillingsDiv = document.getElementById('fillings-list');
+    fillingsDiv.innerHTML = '';
+    Object.entries(PRODUCT_PRICES.fillings).forEach(([key, price]) => {
+        fillingsDiv.innerHTML += `
+            <div class="checkbox-container">
+                <input type="checkbox" id="fill-${key}" data-key="${key}" class="cake-option cake-filling">
+                <label for="fill-${key}">${capitalize(key)}</label>
+                <span class="price-tag" id="price-fill-${key}">$${price.toLocaleString()}</span>
+            </div>
+        `;
+    });
+
+    // Toppings
+    const toppingsDiv = document.getElementById('toppings-list');
+    toppingsDiv.innerHTML = '';
+    Object.entries(PRODUCT_PRICES.toppings).forEach(([key, price]) => {
+        toppingsDiv.innerHTML += `
+            <div class="checkbox-container">
+                <input type="checkbox" id="top-${key}" data-key="${key}" class="cake-option cake-topping">
+                <label for="top-${key}">${capitalize(key)}</label>
+                <span class="price-tag" id="price-top-${key}">$${price.toLocaleString()}</span>
+            </div>
+        `;
+    });
+
+    // Decoraciones
+    const decorationsDiv = document.getElementById('decorations-list');
+    decorationsDiv.innerHTML = '';
+    Object.entries(PRODUCT_PRICES.decorations).forEach(([key, price]) => {
+        decorationsDiv.innerHTML += `
+            <div class="checkbox-container">
+                <input type="checkbox" id="dec-${key}" data-key="${key}" class="cake-option cake-decoration">
+                <label for="dec-${key}">${capitalize(key)}</label>
+                <span class="price-tag" id="price-dec-${key}">$${price.toLocaleString()}</span>
+            </div>
+        `;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        const splashScreen = document.querySelector('.splash-screen');
+        if (splashScreen) splashScreen.style.display = 'none';
+    }, 2000);
+
+    renderOptions();
+
+    function getMultiplier() {
+        const selectedSize = document.querySelector('.cake-size:checked');
+        if (!selectedSize) return 1;
+        return parseFloat(selectedSize.getAttribute('data-multiplier')) || 1;
+    }
+
+    function updateOptionPrices() {
+        const multiplier = getMultiplier();
+
+        // Rellenos
+        Object.entries(PRODUCT_PRICES.fillings).forEach(([key, base]) => {
+            let price = base;
+            if (multiplier !== 1) price = Math.round(base * multiplier);
+            const priceTag = document.getElementById('price-fill-' + key);
+            if (priceTag) priceTag.textContent = `$${price.toLocaleString()}`;
+        });
+
+        // Toppings
+        Object.entries(PRODUCT_PRICES.toppings).forEach(([key, base]) => {
+            let price = base;
+            if (multiplier !== 1) price = Math.round(base * multiplier);
+            const priceTag = document.getElementById('price-top-' + key);
+            if (priceTag) priceTag.textContent = `$${price.toLocaleString()}`;
+        });
+
+        // Decoraciones
+        Object.entries(PRODUCT_PRICES.decorations).forEach(([key, base]) => {
+            let price = base;
+            if (multiplier !== 1) price = Math.round(base * multiplier);
+            const priceTag = document.getElementById('price-dec-' + key);
+            if (priceTag) priceTag.textContent = `$${price.toLocaleString()}`;
+        });
+    }
+
+    function getPriceFromSpan(input, type) {
+        // Obtiene el valor mostrado en el span de precio asociado al input
+        const key = input.getAttribute('data-key');
+        const priceTag = document.getElementById(`price-${type}-${key}`);
+        if (!priceTag) return 0;
+        return parseInt(priceTag.textContent.replace(/\D/g, '')) || 0;
+    }
+
+    function calculateTotal() {
+        const selectedSize = document.querySelector('.cake-size:checked');
+        let total = 0;
+
+        // Base price
+        if (selectedSize) {
+            total += parseInt(selectedSize.getAttribute('data-price')) || 0;
+        }
+
+        // Rellenos
+        document.querySelectorAll('.cake-filling:checked').forEach(input => {
+            total += getPriceFromSpan(input, 'fill');
+        });
+
+        // Toppings
+        document.querySelectorAll('.cake-topping:checked').forEach(input => {
+            total += getPriceFromSpan(input, 'top');
+        });
+
+        // Decoraciones
+        document.querySelectorAll('.cake-decoration:checked').forEach(input => {
+            total += getPriceFromSpan(input, 'dec');
+        });
+
+        document.getElementById('total-price').textContent = `$${total.toLocaleString()}`;
+    }
+
+    // Listeners para actualizar precios y total
+    document.querySelectorAll('.cake-size').forEach(option => {
+        option.addEventListener('change', () => {
+            updateOptionPrices();
+            calculateTotal();
+        });
+    });
+
+    // Delegación de eventos para los inputs generados dinámicamente
+    document.getElementById('fillings-list').addEventListener('change', calculateTotal);
+    document.getElementById('toppings-list').addEventListener('change', calculateTotal);
+    document.getElementById('decorations-list').addEventListener('change', calculateTotal);
+
+    // Botón WhatsApp
+    document.getElementById('contact-button').addEventListener('click', function() {
+    const selectedSize = document.querySelector('.cake-size:checked');
+    const fillings = Array.from(document.querySelectorAll('.cake-filling:checked'));
+    if (!selectedSize) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Selecciona un tamaño',
+            text: 'Por favor, selecciona un tamaño de torta.',
+            confirmButtonColor: '#FFA500'
+        });
+        return;
+    }
+    if (fillings.length === 0) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Selecciona al menos un relleno',
+            text: 'Por favor, selecciona al menos un relleno.',
+            confirmButtonColor: '#FFA500'
+        });
+        return;
+    }
+
+    const sizeName = selectedSize ? selectedSize.nextElementSibling.textContent : '';
+    const fillingsNames = fillings.map(f => f.nextElementSibling.textContent);
+    const toppings = Array.from(document.querySelectorAll('.cake-topping:checked')).map(t => t.nextElementSibling.textContent);
+    const decorations = Array.from(document.querySelectorAll('.cake-decoration:checked')).map(d => d.nextElementSibling.textContent);
+    const totalPrice = document.getElementById('total-price').textContent;
+
+    let message = "Hola, buenas tardes, me gustaría una torta con lo siguiente:\n";
+    if (sizeName) message += `Tamaño: ${sizeName}\n`;
+    if (fillingsNames.length) message += `Rellenos: ${fillingsNames.join(', ')}\n`;
+    if (toppings.length) message += `Toppings: ${toppings.join(', ')}\n`;
+    if (decorations.length) message += `Decoraciones: ${decorations.join(', ')}\n`;
+    message += `Total aproximado: ${totalPrice}`;
+
+    const phone = "5491123234612"; // Cambia aquí tu número
+    const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+});
+
+    // Preselecciona individual y actualiza precios al cargar
+    const individualSize = document.getElementById('size-individual');
+    if (individualSize) {
+        individualSize.checked = true;
+        updateOptionPrices();
+        calculateTotal();
+    }
+    // También actualiza precios al cargar
+    updateOptionPrices();
+});
+</script>
+</body>
+</html>
