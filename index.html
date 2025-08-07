@@ -38,41 +38,6 @@
             background-color: #f8f5f1c4;
         }
 
-        .splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgb(243, 238, 233);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            animation: fadeOut 2s ease-in-out forwards;
-        }
-
-        .splash-logo {
-            animation: grow 2s ease-in-out;
-            width: 60vw;
-            max-width: 900px;
-            height: auto;
-            display: block;
-            border: 3px solid #9e611b;
-        }
-
-        @keyframes grow {
-            0% { transform: scale(0.5); opacity: 0; }
-            50% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(1); opacity: 0; }
-        }
-
-        @keyframes fadeOut {
-            0% { opacity: 1; }
-            80% { opacity: 0; }
-            100% { opacity: 0; visibility: hidden; }
-        }
-
         .option-card {
             transition: all 0.3s ease;
             box-shadow: 0 10px 15px 0px rgba(0, 0, 0, 0.1);
@@ -116,16 +81,12 @@
     </style>
 </head>
 <body>
-    <!-- Splash Screen -->
-    <div class="splash-screen">
-        <img src="img/sh_logo.jpg">
-    </div>
-
     <!-- Main Content -->
     <div class="container mx-auto px-4 py-8 max-w-5xl">
-        <header class="text-center mb-10 tituloPrincipal">
-            <h1 class="text-5xl font-bold text-gray-800 mb-3">Crea tu presupuesto!</h1>
-            <p class="text-lg text-gray-600">Sweet Hope - Dulces momentos para compartir</p>
+        <header class="text-center mb-10">
+            <img src="img/sh_logo.jpg" alt="Logo Sweet Hope" style="margin: 0 auto 1.5rem auto; display: block; max-width: 180px; border: 4px solid rgb(228, 200, 187)">
+            <h1 class="text-5xl font-bold text-gray-800 mb-3 tituloPrincipal">Crea tu presupuesto!</h1>
+            <p class="text-lg text-gray-600 tituloPrincipal">Sweet Hope - Dulces momentos para compartir</p>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -140,19 +101,19 @@
                 </div> -->
                 
                 <div class="checkbox-container">
-                    <input type="radio" id="size-medium" name="cake-size" data-price="25000" data-multiplier="1.6" class="cake-option cake-size">
+                    <input type="radio" id="size-medium" name="cake-size" data-price="25000" data-multiplier="1.0" class="cake-option cake-size">
                     <label for="size-medium">ㅤMediana</label>
                     <span class="price-tag">$25.000</span>
                 </div>
                 
                 <div class="checkbox-container">
-                    <input type="radio" id="size-large" name="cake-size" data-price="35000" data-multiplier="2.2" class="cake-option cake-size">
+                    <input type="radio" id="size-large" name="cake-size" data-price="35000" data-multiplier="1.8" class="cake-option cake-size">
                     <label for="size-large">ㅤGrande</label>
                     <span class="price-tag">$35.000</span>
                 </div>
                 
                 <div class="checkbox-container">
-                    <input type="radio" id="size-2tier" name="cake-size" data-price="50000" data-multiplier="3.6" class="cake-option cake-size">
+                    <input type="radio" id="size-2tier" name="cake-size" data-price="50000" data-multiplier="2.6" class="cake-option cake-size">
                     <label for="size-2tier">ㅤ2 pisos</label>
                     <span class="price-tag">$50.000</span>
                 </div>
@@ -280,11 +241,6 @@ function renderOptions() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(() => {
-        const splashScreen = document.querySelector('.splash-screen');
-        if (splashScreen) splashScreen.style.display = 'none';
-    }, 2000);
-
     renderOptions();
 
     function getMultiplier() {
