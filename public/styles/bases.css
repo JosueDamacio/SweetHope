@@ -1,0 +1,6 @@
+body {
+    background-image: url("../../img/wave.jpg") !important;
+    background-repeat: repeat !important;
+    background-size: 200px 200px !important; /* Ajusta el tamaño del mosaico si lo deseas */
+    background-color: #fff !important;
+}

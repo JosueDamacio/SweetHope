@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sweet Hope - galletas</title>
+
+    <script src="../public/scripts/menu.js" defer></script>
+    <link rel="stylesheet" href="../public/styles/header.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+    <style>
+        :root {
+            --max-w: 1200px;
+            --gap: 40px;
+            --accent: #08385a;
+            --muted: #5b6b75;
+            --link: #114a8b;
+            font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        body {
+            margin: 0;
+            padding: 0px;
+            background: #fff;
+            color: #222;
+        }
+
+        .wrap {
+            max-width: var(--max-w);
+            width: 100%;
+            box-sizing: border-box;
+            margin-left: 15%;
+            padding: 20px;
+        }
+
+        /* Grid para la fila principal */
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: var(--gap);
+            align-items: start;
+            margin-bottom: 80px;
+        }
+
+        .row:not(.reverse) > .side {
+        padding: 0 !important;
+        margin-left: -80px; /* o ajustá el valor para que quede bien */
+        }
+
+
+
+
+
+        .img-card {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 6px;
+            box-shadow: 0 6px 18px rgba(10, 20, 40, 0.08);
+        }
+
+        .img-card img {
+            display: block;
+            width: 70%;
+            height: auto;
+            object-fit: cover;
+            margin-left: 100px;
+        }
+
+        /* Columna derecha: textos */
+        .side {
+            padding: 20px 0px;
+        }
+
+        .kicker {
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .titulo-torta {
+            color: var(--accent);
+            margin: 0 0 14px 0;
+            font-size: 28px;
+            line-height: 1.05;
+        }
+
+        p {
+            color: #333;
+            line-height: 1.6;
+            margin: 0 0 18px 0;
+        }
+
+        a.more {
+            display: inline-block;
+            font-weight: 600;
+            color: var(--link);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        a.more:hover {
+            border-color: var(--link);
+        }
+
+        /* Segunda sección invertida: texto izquierda + imagen derecha */
+        .row.reverse {
+            grid-template-columns: 480px 1fr;
+            gap: var(--gap);
+            align-items: center;
+        }
+
+        .small-title {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width:900px) {
+
+            .img-card img {
+                margin-left: 0;
+            }
+            .wrap {
+                text-align: center;
+                margin-left: 0%;
+            }
+            .wrap img {
+                width: 100%;
+            }
+
+            .row:not(.reverse) > .side {
+            padding: 0 !important;
+            margin-left: 0px; /* o ajustá el valor para que quede bien */
+            }
+
+            .row,
+            .row.reverse {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "image"
+                    "text";
+            }
+
+            .row .img-card,
+            .row.reverse .img-card {
+                grid-area: image;
+            }
+
+            .row .side,
+            .row.reverse>div:not(.img-card) {
+                grid-area: text;
+            }
+
+            .side {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left hamburger-menu">
+                    <i style=" padding: 20px;" class="fas fa-bars"></i>
+                </div>
+                <div class="header-center">
+                    <a href="index.html" style=" text-decoration: none; ">
+                        <h1>Sweet Hope</h1>
+                        <h2>(si, sabemos que no son galletas)</h2>
+                    </a>
+                </div>
+                <div class="header-right">
+                    <a href="index.html">
+                        <img src="/img/sh_logo.jpg" alt="Sweet Hope Logo">
+                    </a>
+                </div>
+            </div>
+
+            <nav class="navbar">
+                <ul class="nav-items">
+                    <li class="nav-item"><a href="javascript:void(0)">Cheese Cake</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)">Galletas</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)">Tortas Especiales</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)">Alfajores</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)">Budines</a></li>
+                    <li class="nav-item"><a href="presupuesto.html">Calcular Presupuesto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <div class="wrap">
+        <!-- fila 1: imagen grande izquierda, texto derecha -->
+        <section class="row">
+            <div class="img-card">
+                <img src="../img/tortas/cobertura_simple_2.jpg" alt="Imagen aérea fábrica y estacionamiento">
+            </div>
+
+            <aside class="side">
+                <div class="kicker">Sweet Hope</div>
+                <h2 class="titulo-torta">Disfrutá del sabor artesanal</h2>
+                <div class="small-title">Torta decorada con crema, Toppings coloridos y chocolate.</div>
+                <p>
+                    Tortas hechas a la medida para cada ocasión especial. Elaboradas con ingredientes frescos y de alta calidad,
+                    nuestra dedicación y pasión por la repostería se reflejan en cada bocado.
+                </p>
+                <a class="more" href="#" target="_blank" rel="noopener">Solicitar ↗</a>
+            </aside>
+        </section>
+
+        <!-- fila 2: texto izquierda, imagen derecha -->
+        <section class="row reverse espaciado">
+            <div>
+                <h2 class="titulo-torta">Ideal para regalar y compartir!</h2>
+                <div class="small-title">Torta cumpleañera decorada con crema, chocolate y frutas!</div>
+                <p>
+                    No sabés que regalar? Nuestras tortas son el detalle perfecto para sorprender a tus seres queridos en cumpleaños, aniversarios,
+                    reuniones familiares o eventos corporativos. Además, ofrecemos opciones para personas con restricciones alimentarias.
+                </p>
+                <p style="margin-top:12px;">
+                    <a class="more" href="#">Solicitar ↗</a>
+                </p>
+            </div>
+
+            <div class="img-card" aria-hidden="true">
+                <img src="../img/tortas/cobertura_simple.jpg" alt="Imagen secundaria paisaje" />
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
