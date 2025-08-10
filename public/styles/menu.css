@@ -14,8 +14,8 @@ body {
 
 .container {
     max-width: 100%;
-    margin: 1%;
-    padding: 0 20px;
+    margin: 0%;
+    padding-bottom: 20px;
 }
 
 .main-content {
@@ -37,6 +37,15 @@ body {
     width: 100px;
     height: 3px;
     background: var(--secondary-color);
+}
+
+.swiper-pagination-bullet {
+    background: #f7698a !important; /* Tu color rosa */
+    opacity: 0.4;
+}
+.swiper-pagination-bullet-active {
+    background: #f7698a !important;
+    opacity: 1;
 }
 
 .product-card {
@@ -65,10 +74,15 @@ body {
 .product-description {
     background: var(--secondary-color);
     padding: 15px;
-    display: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.7s cubic-bezier(.4,0,.2,1), opacity 0.7s cubic-bezier(.4,0,.2,1);
+    display: block; /* Siempre block para animar altura */
 }
 .product-description.active {
-    display: block;
+    max-height: 300px; /* Ajusta según el contenido esperado */
+    opacity: 1;
 }
 .request-button {
     display: block;

@@ -25,35 +25,33 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="header-left hamburger-menu">
-                    <i class="fas fa-bars hamburguesa"></i>
-                </div>
-                <div class="header-center">
-                    <a href="index.html" style=" text-decoration: none; ">
-                        <h1 ">Sweet Hope</h1>
-                        <h2 ">Dulces momentos para compartir</h2>
-                    </a>
-                </div>
-                <div class="header-right">
-                    <a href="index.html">
-                        <img src="../img/sh_logo.jpg" alt="Sweet Hope Logo">
-                    </a>
-                </div>
+    <div class="container header-bar">
+        <!-- Izquierda: logo + títulos -->
+        <div class="brand">
+        <a class="brand-link" href="index.html" aria-label="Inicio" style="text-decoration: none;">
+            <img class="brand-logo" src="img/sh_logo.jpg" alt="Sweet Hope Logo">
+            <div class="brand-text">
+            <h1 class="brand-title">Sweet Hope</h1>
+            <h2 class="brand-subtitle">Dulces momentos para compartir</h2>
             </div>
-
-            <nav class="navbar">
-                <ul class="nav-items">
-                    <li class="nav-item"><a class="presupuesto" href="https://josuedamacio.github.io/SweetHope/docs/presupuesto.html">Calcular Presupuesto</a></li>
-                    <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Budines</a></li>
-                    <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Cheese Cake</a></li>
-                    <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Galletas</a></li>
-                    <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Tortas Especiales</a></li>
-                    <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Alfajores</a></li>
-                </ul>
-            </nav>
+        </a>
         </div>
+
+        <!-- Derecha: nav -->
+        <nav class="navbar" aria-label="Navegación principal">
+        <button class="hamburger-menu" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-items">
+            <li class="nav-item"><a class="presupuesto" href="https://josuedamacio.github.io/SweetHope/docs/presupuesto.html">Calcular Presupuesto</a></li>
+            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Budines</a></li>
+            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Cheese Cake</a></li>
+            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Galletas</a></li>
+            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Tortas Especiales</a></li>
+            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Alfajores</a></li>
+        </ul>
+        </nav>
+    </div>
     </header>
     
     <!-- Main Content -->
@@ -161,6 +159,20 @@
                     </div>
 
                     <!-- Product 3 -->
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="img/tortas/cobertura_simple_fruta.jpg"
+                                    alt="Budín de Banana">
+                            </div>
+                            <div class="product-title">Budín de Banana</div>
+                            <div class="product-description">
+                                <p>Estas tortas son deliciosas y perfectas para cualquier ocasión.</p>
+                                <button class="request-button" data-product="Budín de Banana">Solicitar</button>
+                            </div>
+                        </div>
+                    </div>
+                                        <!-- Product 3 -->
                     <div class="swiper-slide">
                         <div class="product-card">
                             <div class="product-image">

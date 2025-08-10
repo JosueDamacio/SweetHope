@@ -9,6 +9,7 @@
     <link rel="icon" type="image/x-icon" href="/img/sh_logo.ico">
     <script src="../public/scripts/menu.js" defer></script>
     <link rel="stylesheet" href="../public/styles/header.css">
+    <!-- acá quite algo y se rompio -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -171,37 +172,35 @@
 
 <body>
 
-<!-- Header -->
+    <!-- Header -->
     <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="header-left hamburger-menu">
-                    <i class="fas fa-bars hamburguesa"></i>
-                </div>
-                <div class="header-center">
-                    <a href="index.html" style=" text-decoration: none; ">
-                        <h1>Sweet Hope</h1>
-                        <h2>Dulces momentos para compartir</h2>
-                    </a>
-                </div>
-                <div class="header-right">
-                    <a href="index.html">
-                        <img src="../img/sh_logo.jpg" alt="Sweet Hope Logo">
-                    </a>
-                </div>
+    <div class="container header-bar">
+        <!-- Izquierda: logo + títulos -->
+        <div class="brand">
+        <a class="brand-link" href="index.html" aria-label="Inicio" style="text-decoration: none;">
+            <img class="brand-logo" src="/img/sh_logo.jpg" alt="Sweet Hope Logo">
+            <div class="brand-text">
+            <h1 class="brand-title">Sweet Hope</h1>
+            <h2 class="brand-subtitle">Dulces momentos para compartir</h2>
             </div>
-
-            <nav class="navbar">
-                <ul class="nav-items">
-                    <li class="nav-item"><a class="presupuesto" href="https://josuedamacio.github.io/SweetHope/docs/presupuesto.html">Calcular Presupuesto</a></li>
-                    <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Budines</a></li>
-                    <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Cheese Cake</a></li>
-                    <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Galletas</a></li>
-                    <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Tortas Especiales</a></li>
-                    <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Alfajores</a></li>
-                </ul>
-            </nav>
+        </a>
         </div>
+
+        <!-- Derecha: nav -->
+        <nav class="navbar" aria-label="Navegación principal">
+        <button class="hamburger-menu" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-items">
+            <li class="nav-item"><a class="presupuesto" href="https://josuedamacio.github.io/SweetHope/docs/presupuesto.html">Calcular Presupuesto</a></li>
+            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Budines</a></li>
+            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Cheese Cake</a></li>
+            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Galletas</a></li>
+            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Tortas Especiales</a></li>
+            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Alfajores</a></li>
+        </ul>
+        </nav>
+    </div>
     </header>
 
 
