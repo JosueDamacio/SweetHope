@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-    <!-- mios -->
+    <!-- Mios -->
+    <script src="public/scripts/components/header.js" defer></script>
     <script src="public/scripts/index.js" defer></script>
     <link rel="stylesheet" href="public/styles/header.css">
     <link rel="stylesheet" href="public/styles/menu.css">
@@ -23,41 +24,13 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-    <div class="container header-bar">
-        <!-- Izquierda: logo + títulos -->
-        <div class="brand">
-        <a class="brand-link" href="https://josuedamacio.github.io/SweetHope/" aria-label="Inicio" style="text-decoration: none;">
-            <img class="brand-logo" src="img/sh_logo.jpg" alt="Sweet Hope Logo">
-            <div class="brand-text">
-            <h1 class="brand-title">Sweet Hope</h1>
-            <h2 class="brand-subtitle">Dulces momentos para compartir</h2>
-            </div>
-        </a>
-        </div>
-
-        <!-- Derecha: nav -->
-        <nav class="navbar" aria-label="Navegación principal">
-        <button class="hamburger-menu" aria-label="Abrir menú">
-            <i class="fas fa-bars"></i>
-        </button>
-        <ul class="nav-items">
-            <li class="nav-item"><a class="presupuesto" href="https://josuedamacio.github.io/SweetHope/docs/presupuesto.html">Calcular Presupuesto</a></li>
-            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Budines</a></li>
-            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Cheese Cake</a></li>
-            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Galletas</a></li>
-            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Tortas Especiales</a></li>
-            <li class="nav-item"><a href="https://josuedamacio.github.io/SweetHope/docs/galletas.html">Alfajores</a></li>
-        </ul>
-        </nav>
-    </div>
-    </header>
+    <!-- Header hecho con Web Component -->
+    <site-header></site-header>
     
-    <!-- Main Content -->
+    <!-- Contenido de la pagina -->
     <main class="main-content">
         <div class="container">
-            <!-- Contenedor dinámico de carruseles -->
+            <!-- Carruseles de imagenes con descripciones -->
             <div id="carrousels-root" data-carrousels></div>
         </div>
     </main>
