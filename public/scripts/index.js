@@ -143,6 +143,8 @@ function initMobileMenu() {
     }
 }
 
+
+
 // Init general
 document.addEventListener('DOMContentLoaded', () => {
     loadCarrousels();

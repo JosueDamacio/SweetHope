@@ -33,15 +33,8 @@ class SiteHeader extends HTMLElement {
             </div>
         </header>
     `;
+    
 
-        // Lógica del menú hamburguesa (aislada aquí para no depender de scripts externos)
-        const hamburgerMenu = this.querySelector('.hamburger-menu');
-        const navItems = this.querySelector('.nav-items');
-        if (hamburgerMenu && navItems) {
-            hamburgerMenu.addEventListener('click', () => {
-                navItems.classList.toggle('active');
-            });
-        }
     }
 }
 

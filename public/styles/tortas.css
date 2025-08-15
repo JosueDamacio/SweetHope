@@ -1,0 +1,82 @@
+/* Estilos específicos de la página tortas (aislados) */
+:root {
+	--max-w: 1200px;
+	--gap: 40px;
+	--accent: #08385a;
+	--muted: #5b6b75;
+	--link: #114a8b;
+	font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+body.page-tortas {
+	margin: 0;
+	padding: 0px;
+	background: #fff;
+	color: #222;
+}
+
+.page-tortas .wrap {
+	max-width: var(--max-w);
+	width: 100%;
+	box-sizing: border-box;
+	margin-left: 15%;
+	padding: 20px;
+}
+
+/* Grid para la fila principal */
+.page-tortas .row {
+	display: grid;
+	grid-template-columns: 1fr 420px;
+	gap: var(--gap);
+	align-items: start;
+	margin-bottom: 80px;
+}
+
+.page-tortas .row:not(.reverse) > .side {
+	padding: 0 !important;
+	margin-left: -80px; /* o ajustá el valor para que quede bien */
+}
+
+.page-tortas .img-card {
+	width: 100%;
+	overflow: hidden;
+	border-radius: 6px;
+	box-shadow: 0 6px 18px rgba(10, 20, 40, 0.08);
+}
+
+.page-tortas .img-card img {
+	display: block;
+	width: 70%;
+	height: auto;
+	object-fit: cover;
+	margin-left: 100px;
+}
+
+/* Columna derecha: textos */
+.page-tortas .side { padding: 20px 0px; }
+.page-tortas .kicker { color: var(--muted); font-weight: 600; font-size: 13px; margin-bottom: 12px; }
+.page-tortas .titulo-torta { color: var(--accent); margin: 0 0 14px 0; font-size: 28px; line-height: 1.05; }
+.page-tortas p { color: #333; line-height: 1.6; margin: 0 0 18px 0; }
+.page-tortas a.more { display: inline-block; font-weight: 600; color: var(--link); text-decoration: none; border-bottom: 2px solid transparent; padding-bottom: 2px; }
+.page-tortas a.more:hover { border-color: var(--link); }
+
+/* Segunda sección invertida: texto izquierda + imagen derecha */
+.page-tortas .row.reverse {
+	grid-template-columns: 480px 1fr;
+	gap: var(--gap);
+	align-items: center;
+}
+
+.page-tortas .small-title { font-weight: 700; color: var(--accent); font-size: 14px; margin-bottom: 10px; }
+
+/* Responsive */
+@media (max-width:900px) {
+	.page-tortas .img-card img { margin-left: 0; }
+	.page-tortas .wrap { text-align: center; margin-left: 0%; }
+	.page-tortas .wrap img { width: 100%; }
+	.page-tortas .row:not(.reverse) > .side { padding: 0 !important; margin-left: 0px; }
+	.page-tortas .row, .page-tortas .row.reverse { grid-template-columns: 1fr; grid-template-areas: "image" "text"; }
+	.page-tortas .row .img-card, .page-tortas .row.reverse .img-card { grid-area: image; }
+	.page-tortas .row .side, .page-tortas .row.reverse>div:not(.img-card) { grid-area: text; }
+	.page-tortas .side { padding: 0; }
+}
