@@ -1,0 +1,27 @@
+{
+  "tamanios": {
+    "mediana": 19000,
+    "grande": 21000
+  },
+  "rellenos": {
+    "dulce_de_leche": 2300,
+    "mousse": 2200,
+    "chips_de_chocolate": 2500,
+    "crema": 3000,
+    "frutilla_o_durazno": 3500,
+    "galletas_a_eleccion": 4000,
+    "trozos_de_chocolate": 4500,
+    "pasta_de_mani": 5800,
+    "mantecol": 6000,
+    "nutella": 6700,
+    "personalizado": 7000
+  },
+  "toppings": {
+    "crema_decorativa": 1200,
+    "oreo": 3200,
+    "frutas_a_eleccion": 3600,
+    "chocolate": 4500,
+    "nutella": 6000,
+    "personalizado": 5500
+  }
+}

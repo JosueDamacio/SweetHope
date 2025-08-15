@@ -1,43 +1,22 @@
-const PRECIOS_PRODUCTOS = {
-    tamanios: {
-        // individual: 15000,
-        mediana: 19000,
-        grande: 21000
-        //dos_pisos: 28000
-    },
-    rellenos: {
-        dulce_de_leche: 2300,
-        mousse: 2200,
-        chips_de_chocolate: 2500,
-        crema: 3000,
-        frutilla_o_durazno: 3500,
-        galletas_a_eleccion: 4000,
-        trozos_de_chocolate: 4500,
-        pasta_de_mani: 5800,
-        mantecol: 6000,
-        nutella: 6700,
-        personalizado: 7000
-    },
-    toppings: {
-        crema_decorativa: 1200,
-        oreo: 3200,
-        frutas_a_eleccion: 3600,
-        chocolate: 4500,
-        nutella: 6000,
-        personalizado: 5500
+// Cargará los precios dinámicamente desde public/data/precios.json
+let PRECIOS_PRODUCTOS = { tamanios: {}, rellenos: {}, toppings: {} /*, decoraciones: {} */ };
+
+async function cargarPrecios() {
+    try {
+        const res = await fetch('../public/data/precios.json');
+        if (!res.ok) throw new Error('No se pudo cargar precios.json');
+        const data = await res.json();
+        PRECIOS_PRODUCTOS = data;
+    } catch (e) {
+        console.error('Error cargando precios:', e);
+        Swal.fire({
+            icon: 'error',
+            title: 'Error cargando precios',
+            text: 'No se pudieron cargar los precios. Intenta recargar la página.',
+            confirmButtonColor: '#FFA500'
+        });
     }
-    // decoraciones: {
-    //     trozos_de_caramelo: 2300,
-    //     frutas: 2600,
-    //     galletitas: 3500,
-    //     cobertura_de_crema: 3800,
-    //     disenos_con_crema: 4000,
-    //     mazapan: 4600,
-    //     impresiones_de_papel_arroz: 5600,
-    //     trozos_de_chocolates: 5800,
-    //     cobertura_de_chocolate: 6500
-    // }
-};
+}
 
 function capitalizar(texto) {
     return texto.replace(/([A-Z])/g, ' $1')
@@ -162,7 +141,8 @@ function calcularTotal() {
     document.getElementById('total-price').textContent = `$${total.toLocaleString()}`;
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+    await cargarPrecios();
     renderizarOpciones();
 
     limitarSeleccion('relleno1-list', 'pastel-relleno1');
@@ -182,11 +162,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('toppings-list').addEventListener('change', calcularTotal);
     // document.getElementById('decorations-list').addEventListener('change', calcularTotal);
 
-    // Botón WhatsApp
-    document.getElementById('contact-button').addEventListener('click', function () {
+    // Botón WhatsApp (ahora muestra un resumen antes de enviar)
+    const contactButton = document.getElementById('contact-button');
+    contactButton.addEventListener('click', async function () {
         const tamanioSeleccionado = document.querySelector('.pastel-tamanio:checked');
         const rellenos1 = Array.from(document.querySelectorAll('.pastel-relleno1:checked'));
         const rellenos2 = Array.from(document.querySelectorAll('.pastel-relleno2:checked'));
+
+        // Validaciones previas
         if (!tamanioSeleccionado) {
             Swal.fire({
                 icon: 'warning',
@@ -206,22 +189,71 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
+        // Valida que haya al menos una decoración
+        const toppingsSeleccionados = Array.from(document.querySelectorAll('.pastel-topping:checked'));
+        if (toppingsSeleccionados.length === 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Selecciona una decoración',
+                text: 'Debes elegir al menos una decoración.',
+                confirmButtonColor: '#FFA500'
+            });
+            return;
+        }
+
         const nombreTamanio = tamanioSeleccionado ? tamanioSeleccionado.nextElementSibling.textContent : '';
         const nombresRellenos1 = rellenos1.map(f => f.nextElementSibling.textContent);
         const nombresRellenos2 = rellenos2.map(f => f.nextElementSibling.textContent);
-        const toppings = Array.from(document.querySelectorAll('.pastel-topping:checked')).map(t => t.nextElementSibling.textContent);
+        const toppings = toppingsSeleccionados.map(t => t.nextElementSibling.textContent);
         const precioTotal = document.getElementById('total-price').textContent;
 
+        // Construcción del mensaje (WhatsApp) y HTML para el resumen
         let mensaje = "Hola, buenas tardes, me gustaría una torta con lo siguiente:\n\n";
         if (nombreTamanio) mensaje += `Tamaño: ${nombreTamanio}\n`;
         if (nombresRellenos1.length) mensaje += `Primer relleno: ${nombresRellenos1.join(', ')}\n`;
         if (nombresRellenos2.length) mensaje += `Segundo relleno: ${nombresRellenos2.join(', ')}\n`;
-        if (toppings.length) mensaje += `Toppings: ${toppings.join(', ')}\n`;
+    if (toppings.length) mensaje += `Decoraciones: ${toppings.join(', ')}\n`;
         mensaje += `Total aproximado: ${precioTotal}`;
 
-        const telefono = "5491123234612"; // Cambia aquí tu número
-        const whatsappUrl = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-        window.open(whatsappUrl, '_blank');
+        const resumenHTML = `
+            <div style="text-align:left; font-size:14px; line-height:1.4;"> 
+                <p><strong>Tamaño:</strong> ${nombreTamanio}</p>
+                ${toppings.length ? `<p><strong>Decoraciones:</strong> ${toppings.join(', ')}</p>` : ''}
+                ${nombresRellenos1.length ? `<p><strong>Primer relleno:</strong> ${nombresRellenos1.join(', ')}</p>` : ''}
+                ${nombresRellenos2.length ? `<p><strong>Segundo relleno:</strong> ${nombresRellenos2.join(', ')}</p>` : ''}
+                <p><strong>Total aprox:</strong> ${precioTotal}</p>
+                <p style="margin-top:8px; font-size:12px; color:#666;">Verifica que todo esté correcto antes de enviar tu pedido.</p>
+            </div>`;
+
+        // Cambia texto del botón a 'Aceptar' mientras se muestra el resumen
+        const textoOriginalBtn = contactButton.textContent;
+        contactButton.textContent = 'Aceptar';
+
+        const { isConfirmed, isDenied } = await Swal.fire({
+            title: 'Resumen del pedido',
+            html: resumenHTML,
+            icon: 'info',
+            showDenyButton: true,
+            denyButtonText: 'Editar',
+            confirmButtonText: 'Enviar',
+            confirmButtonColor: '#25D366',
+            denyButtonColor: '#e78f8f',
+            focusConfirm: false,
+            allowOutsideClick: false
+        });
+
+        if (isConfirmed) {
+            const telefono = "5491123234612"; // Cambia aquí tu número
+            const whatsappUrl = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+            window.open(whatsappUrl, '_blank');
+            contactButton.textContent = textoOriginalBtn; // vuelve al estado original
+        } else if (isDenied) {
+            // Usuario quiere editar: simplemente restaurar el texto del botón
+            contactButton.textContent = textoOriginalBtn;
+        } else {
+            // Caso cierre sin acción
+            contactButton.textContent = textoOriginalBtn;
+        }
     });
 
     // Preselecciona individual y actualiza precios al cargar
