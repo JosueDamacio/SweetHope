@@ -133,20 +133,20 @@ async function loadCarrousels() {
 }
 
 // Menú móvil hamburguesa (se mantiene)
-function initMobileMenu() {
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const navItems = document.querySelector('.nav-items');
-    if (hamburgerMenu && navItems) {
-        hamburgerMenu.addEventListener('click', () => {
-            navItems.classList.toggle('active');
-        });
-    }
-}
+// function initMobileMenu() {
+//     const hamburgerMenu = document.querySelector('.hamburger-menu');
+//     const navItems = document.querySelector('.nav-items');
+//     if (hamburgerMenu && navItems) {
+//         hamburgerMenu.addEventListener('click', () => {
+//             navItems.classList.toggle('active');
+//         });
+//     }
+// }
 
 
 
 // Init general
 document.addEventListener('DOMContentLoaded', () => {
     loadCarrousels();
-    initMobileMenu();
+    // initMobileMenu();
 });

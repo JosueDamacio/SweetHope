@@ -15,7 +15,7 @@ class SiteHeader extends HTMLElement {
                 <img class="brand-logo" src="${base}img/sh_logo.jpg" alt="Sweet Hope Logo">
                 <div class="brand-text">
                     <h1 class="brand-title">Sweet Hope</h1>
-                    <h2 class="brand-subtitle">Dulces momentos para compartir</h2>
+                    <!--<h2 class="brand-subtitle">Dulces momentos para compartir</h2> esto puede agregarse luego-->
                 </div>
                 </a>
             </div>
@@ -33,7 +33,13 @@ class SiteHeader extends HTMLElement {
             </div>
         </header>
     `;
-    
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const navItems = document.querySelector('.nav-items');
+    if (hamburgerMenu && navItems) {
+        hamburgerMenu.addEventListener('click', () => {
+            navItems.classList.toggle('active');
+        });
+    }
 
     }
 }

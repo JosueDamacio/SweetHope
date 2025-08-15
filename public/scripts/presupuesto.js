@@ -209,11 +209,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         // Construcción del mensaje (WhatsApp) y HTML para el resumen
         let mensaje = "Hola, buenas tardes, me gustaría una torta con lo siguiente:\n\n";
-        if (nombreTamanio) mensaje += `Tamaño: ${nombreTamanio}\n`;
-        if (nombresRellenos1.length) mensaje += `Primer relleno: ${nombresRellenos1.join(', ')}\n`;
-        if (nombresRellenos2.length) mensaje += `Segundo relleno: ${nombresRellenos2.join(', ')}\n`;
-    if (toppings.length) mensaje += `Decoraciones: ${toppings.join(', ')}\n`;
-        mensaje += `Total aproximado: ${precioTotal}`;
+        if (nombreTamanio) mensaje += `*Tamaño*: ${nombreTamanio}\n\n`;
+        if (nombresRellenos1.length) mensaje += `*Primer relleno*: ${nombresRellenos1.join(', ')}\n\n`;
+        if (nombresRellenos2.length) mensaje += `*Segundo relleno*: ${nombresRellenos2.join(', ')}\n\n`;
+        if (toppings.length) mensaje += `*Decoraciones*: ${toppings.join(', ')}\n\n`;
+        mensaje += `*Total aproximado*: ${precioTotal}`;
 
         const resumenHTML = `
             <div style="text-align:left; font-size:14px; line-height:1.4;"> 
@@ -243,8 +243,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         });
 
         if (isConfirmed) {
-            const telefono = "5491123234612"; // Cambia aquí tu número
-            const whatsappUrl = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+            // Abre WhatsApp sin número específico para que el usuario elija el contacto
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
             window.open(whatsappUrl, '_blank');
             contactButton.textContent = textoOriginalBtn; // vuelve al estado original
         } else if (isDenied) {
