@@ -1,0 +1,94 @@
+{
+  "carrousels": [
+    {
+      "title": "Tortas",
+      "cssClass": "tortas-swiper",
+      "items": [
+        {
+          "title": "Torta de Chocolate",
+          "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
+          "image": "https://cdn.pixabay.com/photo/2016/11/22/18/52/cake-1850011_1280.jpg",
+          "alt": "Torta de Chocolate"
+        },
+        {
+          "title": "Torta de Frutas",
+          "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
+          "image": "https://cdn.pixabay.com/photo/2018/05/01/18/21/eclair-3366430_1280.jpg",
+          "alt": "Torta de Frutas"
+        },
+        {
+          "title": "Torta de Vainilla",
+          "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
+          "image": "https://cdn.pixabay.com/photo/2016/03/27/22/38/cake-1284548_1280.jpg",
+          "alt": "Torta de Vainilla"
+        },
+        {
+          "title": "Torta Red Velvet",
+          "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
+          "image": "https://cdn.pixabay.com/photo/2014/05/23/23/17/dessert-352475_1280.jpg",
+          "alt": "Torta Red Velvet"
+        }
+      ]
+    },
+    {
+      "title": "Budines",
+      "cssClass": "budines-swiper",
+      "items": [
+        {
+          "title": "Budín de Limón",
+            "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
+            "image": "img/tortas/torta_1.jpeg",
+            "alt": "Budín de Limón"
+        },
+        {
+          "title": "Budín de Naranja",
+            "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
+            "image": "img/tortas/brownie_1.jpeg",
+            "alt": "Budín de Naranja"
+        },
+        {
+          "title": "Budín de Banana",
+            "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
+            "image": "img/tortas/cobertura_simple_fruta.jpg",
+            "alt": "Budín de Banana"
+        },
+        {
+          "title": "Budín de Banana",
+            "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
+            "image": "img/tortas/cobertura_simple_fruta.jpg",
+            "alt": "Budín de Banana"
+        }
+      ]
+    },
+    {
+      "title": "Cheese Cake",
+      "cssClass": "cheesecake-swiper",
+      "items": [
+        {
+          "title": "Cheese Cake Clásico",
+          "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
+          "image": "img/tortas/torta_tipoperturi_2.jpg",
+          "alt": "Cheese Cake Clásico"
+        },
+        {
+          "title": "Cheese Cake de Frutos Rojos",
+          "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
+          "image": "img/tortas/torta_tipoperturi_2.jpg",
+          "alt": "Cheese Cake de Frutos Rojos"
+        },
+        {
+          "title": "Cheese Cake de Chocolate",
+          "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
+          "image": "img/tortas/torta_tipoperturi.jpg",
+          "alt": "Cheese Cake de Chocolate"
+        },
+        {
+          "title": "Cheese Cake de Limón",
+          "description": "Estas tortas son deliciosas y perfectas para bla bla bla.",
+          "image": "https://cdn.pixabay.com/photo/2016/11/29/11/38/cake-1869227_1280.jpg",
+          "alt": "Cheese Cake de Limón"
+        }
+      ]
+    }
+  ]
+}
