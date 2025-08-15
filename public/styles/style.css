@@ -1,7 +1,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #fff6f0;    /*#fff6f0 */
-    background-image: url("/img/torta.png");
+    background-image: url("../../img/torta.png");
     background-position: center;
     background-size: 200px 200px;
     background-attachment: fixed;
