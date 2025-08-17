@@ -1,92 +1,86 @@
 {
   "carrousels": [
     {
-      "title": "Tortas",
+      "title": "Postres Especiales",
       "cssClass": "tortas-swiper",
       "items": [
         {
-          "title": "Torta de Chocolate",
-          "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
-          "image": "https://cdn.pixabay.com/photo/2016/11/22/18/52/cake-1850011_1280.jpg",
-          "alt": "Torta de Chocolate"
+          "title": "Brownie Completo",
+          "description": "Mejor que un brownie, un brownie con nueces, merengue italiano y dulce de leche.",
+          "image": "img/tortas/brownie_1.jpeg",
+          "alt": "Brownie Completo"
         },
         {
-          "title": "Torta de Frutas",
-          "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
-          "image": "https://cdn.pixabay.com/photo/2018/05/01/18/21/eclair-3366430_1280.jpg",
-          "alt": "Torta de Frutas"
+          "title": "Cheesecake",
+          "description": "Una clásica torta de la fruta que prefieras, una elección refrescante y liviana.",
+          "image": "img/tortas/cheesecake.jpg",
+          "alt": "Cheesecake"
         },
         {
-          "title": "Torta de Vainilla",
-          "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
-          "image": "https://cdn.pixabay.com/photo/2016/03/27/22/38/cake-1284548_1280.jpg",
-          "alt": "Torta de Vainilla"
+          "title": "Super ChocoOreo",
+          "description": "Una versión de chocotorta pero con OREO? es lo mejor de ambos mundos, tenés que probarla.",
+          "image": "img/tortas/decoracion_galletas.jpg",
+          "alt": "Super ChocoOreo"
         },
         {
-          "title": "Torta Red Velvet",
-          "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
-          "image": "https://cdn.pixabay.com/photo/2014/05/23/23/17/dessert-352475_1280.jpg",
-          "alt": "Torta Red Velvet"
+          "title": "Torta Chajá",
+          "description": "La conocida torta Chajá con la textura y sabor inconfundibles de Sweet Hope.",
+          "image": "img/tortas/torta_chaja.jpeg",
+          "alt": "Torta Chajá"
         }
       ]
     },
     {
-      "title": "Budines",
-      "cssClass": "budines-swiper",
-      "items": [
-        {
-          "title": "Budín de Limón",
-            "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
-            "image": "img/tortas/torta_1.jpeg",
-            "alt": "Budín de Limón"
-        },
-        {
-          "title": "Budín de Naranja",
-            "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
-            "image": "img/tortas/brownie_1.jpeg",
-            "alt": "Budín de Naranja"
-        },
-        {
-          "title": "Budín de Banana",
-            "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
-            "image": "img/tortas/cobertura_simple_fruta.jpg",
-            "alt": "Budín de Banana"
-        },
-        {
-          "title": "Budín de Banana",
-            "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
-            "image": "img/tortas/cobertura_simple_fruta.jpg",
-            "alt": "Budín de Banana"
-        }
-      ]
-    },
-    {
-      "title": "Cheese Cake",
+      "title": "Productos de temporada",
       "cssClass": "cheesecake-swiper",
       "items": [
         {
-          "title": "Cheese Cake Clásico",
-          "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
-          "image": "img/tortas/torta_tipoperturi_2.jpg",
-          "alt": "Cheese Cake Clásico"
+          "title": "Postre Lemonpie",
+          "description": "Clasico lemon pie pero en formato individual, para disfrutar una porción donde y cuando quieras.",
+          "image": "img/tortas/postre-lp.jpg",
+          "alt": "Postre Lemonpie"
         },
         {
-          "title": "Cheese Cake de Frutos Rojos",
-          "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
-          "image": "img/tortas/torta_tipoperturi_2.jpg",
-          "alt": "Cheese Cake de Frutos Rojos"
+          "title": "Torta Cumpleañera",
+          "description": "Querés una excelente torta en sabor y decoracion para tu cumpleaños? Esta seguramente es tu mejor opción.",
+          "image": "img/tortas/torta_cumpleañera.jpeg",
+          "alt": "Torta Cumpleañera"
         },
         {
-          "title": "Cheese Cake de Chocolate",
-          "description": "Estas tortas son deliciosas y perfectas para cualquier ocasión.",
-          "image": "img/tortas/torta_tipoperturi.jpg",
-          "alt": "Cheese Cake de Chocolate"
+          "title": "Alfajores de Chocolate",
+          "description": "Ideales para la mesa dulce, para después de la cena o darte un gusto.",
+          "image": "img/tortas/alfajores_n.png",
+          "alt": "Alfajores de Chocolate"
         },
         {
-          "title": "Cheese Cake de Limón",
-          "description": "Estas tortas son deliciosas y perfectas para bla bla bla.",
-          "image": "https://cdn.pixabay.com/photo/2016/11/29/11/38/cake-1869227_1280.jpg",
-          "alt": "Cheese Cake de Limón"
+          "title": "Galletitas con Nueces",
+          "description": "Estas galletitas son deliciosas y perfectas para cualquier ocasión, para merendar y disfrutar con unos mates.",
+          "image": "img/tortas/galletas.png",
+          "alt": "Galletitas"
+        }
+      ]
+    },
+    {
+      "title": "Eventos",
+      "cssClass": "budines-swiper",
+      "items": [
+        {
+          "title": "Cumpleaños temáticos",
+            "description": "Decoración, torta y mesa dulce adaptada a la temática del cumpleaños, ideal para hacer de tu celebración un momento inolvidable.",
+            "image": "img/tortas/evento.png",
+            "alt": "Cumpleaños temáticos"
+        },
+        {
+          "title": "Capacitación en Globología",
+            "description": "Capacitación profesional para ambientar eventos con distintos tipos de figuras y estructuras hechas de globos!",
+            "image": "img/tortas/evento2.png",
+            "alt": "Globología"
+        },
+        {
+          "title": "Curso de Decoración de Tortas",
+            "description": "Preparación integral en técnicas de decoración de tortas y armado de mesas dulces para todo tipo de eventos.",
+            "image": "img/tortas/evento3.png",
+            "alt": "Curso de Decoración de Tortas"
         }
       ]
     }

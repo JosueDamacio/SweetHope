@@ -90,7 +90,7 @@ function attachRequestButtons(root) {
         button.addEventListener('click', e => {
             e.stopPropagation();
             const productName = button.getAttribute('data-product');
-            const message = `Hola me gustaría solicitarte la torta ${productName}`;
+            const message = `Hola me gustaría saber más sobre este producto: ${productName}`;
             const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         });
