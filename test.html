@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap featurettes - ejemplo</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
+    <style>
+        /* separación entre featurettes */
+        .featurette-divider {
+            margin: 4rem 0;
+            border-top: 1px solid rgba(255, 255, 255, .25);
+            /* más visible */
+        }
+
+        /* estilo heading */
+        .featurette-heading {
+            font-weight: 300;
+            line-height: 1;
+            letter-spacing: -.03rem;
+            font-size: clamp(1.6rem, 3.6vw, 3.25rem);
+        }
+
+        /* placeholder svg responsivo */
+        .bd-placeholder-img {
+            display: block;
+            width: 100%;
+            height: auto;
+            text-anchor: middle;
+            dominant-baseline: middle;
+        }
+
+        .bd-placeholder-text {
+            font-size: clamp(1.4rem, 2.4vw, 3rem);
+        }
+
+        /* Centrado en móviles para columnas de texto */
+        @media (max-width: 767.98px) {
+            .texto-featurette_opt {
+                text-align: center;
+            }
+            .texto-featurette_opt .lead {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-light">
+
+    <div class="container py-5">
+        
+        <hr class="featurette-divider">
+        
+        <div class="row featurette align-items-center">
+            <div class="col-md-7 texto-featurette_opt">
+                <h2 class="featurette-heading fw-normal lh-1">
+                    First featurette heading.
+                    <span class="text-body-secondary">It'll blow your mind.</span>
+                </h2>
+                <p class="lead w-75">
+                    Some great placeholder content for the first featurette here. Imagine some exciting prose here.
+                </p>
+            </div>
+
+            <div class="col-md-5 ">
+                <svg aria-label="Placeholder: 500x500"
+                    class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                    preserveAspectRatio="xMidYMid slice" role="img" viewBox="0 0 500 500"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="rgba(255,255,255,0.06)"></rect>
+                    <text x="50%" y="50%" class="bd-placeholder-text" fill="rgba(255,255,255,0.7)"
+                        dy=".3em">500x500</text>
+                </svg>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette align-items-center">
+            <div class="col-md-7 order-md-2 ms-md-auto col-lg-6 texto-featurette_opt">
+                <h2 class="featurette-heading fw-normal lh-1">
+                    Oh yeah, it's that good.
+                    <span class="text-body-secondary">See for yourself.</span>
+                </h2>
+                <p class="lead w-75">
+                    Another featurette? Of course. More placeholder content here to give you an idea of how this layout
+                    would work with some actual real-world content in place.
+                </p>
+            </div>
+
+            <div class="col-md-5 order-md-1">
+                <svg aria-label="Placeholder: 500x500"
+                    class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                    preserveAspectRatio="xMidYMid slice" role="img" viewBox="0 0 500 500"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="rgba(255,255,255,0.06)"></rect>
+                    <text x="50%" y="50%" class="bd-placeholder-text" fill="rgba(255,255,255,0.7)"
+                        dy=".3em">500x500</text>
+                </svg>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
